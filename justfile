@@ -3,7 +3,7 @@ default:
 
 # apply home-manager configuration
 switch:
-    home-manager switch --flake .
+    home-manager switch --flake . --impure
 
 # update flake inputs
 update:

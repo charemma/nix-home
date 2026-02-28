@@ -9,12 +9,13 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }: {
-    homeConfigurations = {
-      charemma = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [ ./home.nix ];
-      };
+  outputs = { nixpkgs, home-manager, ... }:
+  let
+    system = builtins.currentSystem;
+  in {
+    homeConfigurations.charemma = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${system};
+      modules = [ ./home.nix ];
     };
   };
 }

@@ -1,8 +1,10 @@
 { config, pkgs, ... }:
 
-{
+let
+  isDarwin = pkgs.stdenv.isDarwin;
+in {
   home.username = "charemma";
-  home.homeDirectory = "/home/charemma";
+  home.homeDirectory = if isDarwin then "/Users/charemma" else "/home/charemma";
   home.stateVersion = "24.05";
 
   nixpkgs.config.allowUnfree = true;
@@ -17,12 +19,14 @@
     glow
     go
     jq
+    just
     lsd
     neovim
     nodejs
     ripgrep
     starship
     yazi
+  ] ++ lib.optionals (!isDarwin) [
     zathura
   ];
 
