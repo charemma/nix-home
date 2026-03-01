@@ -18,8 +18,11 @@ in {
     fzf
     glow
     go
+    gh
     jq
     just
+    k9s
+    kubectl
     lsd
     neovim
     nodejs
