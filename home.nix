@@ -33,5 +33,6 @@ in {
     zathura
   ];
 
+  news.display = "silent";
   programs.home-manager.enable = true;
 }
