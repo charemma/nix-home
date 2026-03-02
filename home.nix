@@ -3,6 +3,9 @@
 let
   isDarwin = pkgs.stdenv.isDarwin;
 in {
+  imports = [
+    ./backup.nix
+  ];
   home.username = "charemma";
   home.homeDirectory = if isDarwin then "/Users/charemma" else "/home/charemma";
   home.stateVersion = "24.05";
